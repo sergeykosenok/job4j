@@ -79,4 +79,16 @@ public class TriangleTest {
         boolean result = triangle.isPossibleTriangleWithSides(4, 5, 10);
         assertThat(result, is(false));
     }
+    @Test
+    public void whenSetThreeSidesSuccessThenPossibilityCreateTriangle() {
+        Triangle triangle = new Triangle();
+        boolean result = triangle.isPossibleTriangleWithSides(4, 5, 7);
+        assertThat(result, is(true));
+    }
+    @Test
+    public void whenSetThreeSidesFailureThenPossibilityCreateTriangle() {
+        Triangle triangle = new Triangle();
+        boolean result = triangle.isPossibleTriangleWithSides(4, 5, 0.7);
+        assertThat(result, is(false));
+    }
 }

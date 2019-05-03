@@ -65,6 +65,6 @@ public class Triangle {
     }
 
     public boolean isPossibleTriangleWithSides(double a, double b, double c) {
-        return !(a + b <= c);
+        return (a + b > c) && (Math.abs(a - b) < c);
     }
 }
