@@ -74,21 +74,30 @@ public class TriangleTest {
     }
 
     @Test
-    public void whenSetThreeSidesThenPossibilityCreateTriangle() {
+    public void whenSetThreeSidesSuccessVar1ThenPossibilityCreateTriangle() {
         Triangle triangle = new Triangle();
-        boolean result = triangle.isPossibleTriangleWithSides(4, 5, 10);
-        assertThat(result, is(false));
+        boolean result = triangle.isPossibleTriangleWithSides(4, 5, 2);
+        assertThat(result, is(true));
     }
+
     @Test
-    public void whenSetThreeSidesSuccessThenPossibilityCreateTriangle() {
+    public void whenSetThreeSidesSuccessVar2ThenPossibilityCreateTriangle() {
         Triangle triangle = new Triangle();
         boolean result = triangle.isPossibleTriangleWithSides(4, 5, 7);
         assertThat(result, is(true));
     }
+
     @Test
-    public void whenSetThreeSidesFailureThenPossibilityCreateTriangle() {
+    public void whenSetThreeSidesFailureVar1ThenPossibilityCreateTriangle() {
         Triangle triangle = new Triangle();
         boolean result = triangle.isPossibleTriangleWithSides(4, 5, 0.7);
+        assertThat(result, is(false));
+    }
+    @Test
+
+    public void whenSetThreeSidesFailureVar2ThenPossibilityCreateTriangle() {
+        Triangle triangle = new Triangle();
+        boolean result = triangle.isPossibleTriangleWithSides(4, 5, 10);
         assertThat(result, is(false));
     }
 }
