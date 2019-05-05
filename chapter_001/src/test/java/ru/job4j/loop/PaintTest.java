@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class PaintTest {
 
     @Test
-    public void whenPyramid4Height() {
+    public void whenPiramid4Height() {
         Paint paint = new Paint();
         String piramid = paint.piramid(4);
         System.out.println(piramid);
@@ -30,9 +30,54 @@ public class PaintTest {
     }
 
     @Test
-    public void whenPyramid15Height() {
+    public void whenPiramid15Height() {
         Paint paint = new Paint();
         String piramid = paint.piramid(15);
+        System.out.println(piramid);
+        assertThat(piramid,
+                is(
+                        new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                                .add("              ^              ")
+                                .add("             ^^^             ")
+                                .add("            ^^^^^            ")
+                                .add("           ^^^^^^^           ")
+                                .add("          ^^^^^^^^^          ")
+                                .add("         ^^^^^^^^^^^         ")
+                                .add("        ^^^^^^^^^^^^^        ")
+                                .add("       ^^^^^^^^^^^^^^^       ")
+                                .add("      ^^^^^^^^^^^^^^^^^      ")
+                                .add("     ^^^^^^^^^^^^^^^^^^^     ")
+                                .add("    ^^^^^^^^^^^^^^^^^^^^^    ")
+                                .add("   ^^^^^^^^^^^^^^^^^^^^^^^   ")
+                                .add("  ^^^^^^^^^^^^^^^^^^^^^^^^^  ")
+                                .add(" ^^^^^^^^^^^^^^^^^^^^^^^^^^^ ")
+                                .add("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+                                .toString()
+                )
+        );
+    }
+
+    @Test
+    public void whenPyramid4Height() {
+        Paint paint = new Paint();
+        String piramid = paint.pyramid(4);
+        System.out.println(piramid);
+        assertThat(piramid,
+                is(
+                        new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                                .add("   ^   ")
+                                .add("  ^^^  ")
+                                .add(" ^^^^^ ")
+                                .add("^^^^^^^")
+                                .toString()
+                )
+        );
+    }
+
+    @Test
+    public void whenPyramid15Height() {
+        Paint paint = new Paint();
+        String piramid = paint.pyramid(15);
         System.out.println(piramid);
         assertThat(piramid,
                 is(
