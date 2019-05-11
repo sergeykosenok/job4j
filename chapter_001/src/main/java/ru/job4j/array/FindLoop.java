@@ -3,11 +3,14 @@ package ru.job4j.array;
 public class FindLoop {
 
     public int getIndex(double[] data, double lookData) {
-        for (int index = 0; index < data.length; index++) {
+        int result = -1;
+        boolean isFoundResult = false;
+        for (int index = 0; index < data.length && !(isFoundResult); index++) {
             if (data[index] == lookData) {
-                return index;
+                result = index;
+                isFoundResult = true;
             }
         }
-        return -1;
+        return result;
     }
 }
