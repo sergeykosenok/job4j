@@ -10,16 +10,18 @@ public class ArrayChar {
 
     public boolean startWith(String sample) {
         char[] sampleCharArray = sample.toCharArray();
-
+        int charMatch = 0;
+        //отсекающий return в случае если искать не нужно из-за
+        // несовместимости длины образца с исследуемой строкой
         if (sampleCharArray.length > this.data.length) {
             return false;
         }
-
-        for (int index = 0; index < sampleCharArray.length; index++) {
+        for (int index = 0; index < sampleCharArray.length && (sampleCharArray.length > charMatch); index++) {
             if (this.data[index] != sampleCharArray[index]) {
-                return false;
+                break;
             }
+            charMatch++;
         }
-        return true;
+        return sampleCharArray.length == charMatch;
     }
 }
