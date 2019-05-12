@@ -98,13 +98,37 @@ public class Logic {
         return result;
     }
 
+    private boolean isWinByPassingAllArray(int[][] table) {
+        int matchX = 0;
+        int matchY = 0;
+        boolean isMatch = false;
+        for (int i = 0; i < table.length && !isMatch; i++) {
+            for (int j = 0; j < table.length && !isMatch; j++) {
+                if (table[i][j] == 1) {
+                    matchY++;
+                }
+                if (table[j][i] == 1) {
+                    matchX++;
+                }
+            }
+            if (matchY == table.length || matchX == table.length) {
+                isMatch = true;
+            }
+            matchY = 0;
+            matchX = 0;
+
+        }
+        return isMatch;
+    }
+
     /**
      * исследуем последовательно горизонтальную и вертикальную стороны
      * @return
      */
     public boolean isWin() {
         int[][] table = this.convert();
-        return (isSideWin(table, 0)) || (isSideWin(table, 1));
+        return isWinByPassingAllArray(table);
+        //return (isSideWin(table, 0)) || (isSideWin(table, 1));
     }
 
     public int[][] convert() {
