@@ -99,10 +99,12 @@ public class Logic {
     }
 
     private boolean isWinByPassingAllArray(int[][] table) {
-        int matchX = 0;
-        int matchY = 0;
+        int matchX;
+        int matchY;
         boolean isMatch = false;
         for (int i = 0; i < table.length && !isMatch; i++) {
+            matchY = 0;
+            matchX = 0;
             for (int j = 0; j < table.length && !isMatch; j++) {
                 if (table[i][j] == 1) {
                     matchY++;
@@ -114,9 +116,6 @@ public class Logic {
             if (matchY == table.length || matchX == table.length) {
                 isMatch = true;
             }
-            matchY = 0;
-            matchX = 0;
-
         }
         return isMatch;
     }
