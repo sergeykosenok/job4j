@@ -12,20 +12,19 @@ public class ArrayMerge {
             fstArray = right;
             sndArray = left;
         }
-        int m = 0;
-        int i = 0;
-        //int j = 0;
-        do {
-            mergeArray[m] = sndArray[i];
-            m++;
-            if (fstArray[i]>sndArray[0]) || (i+1 == fstArray.length) {
+        int k =0;
+        for (int i = 0; i < fstArray.length; i++) {
+            mergeArray[k] = fstArray[i];
+            k++;
+            if (((i + 1 < fstArray.length) && (fstArray[i+1]>sndArray[0])) || (i + 1 == fstArray.length)) {
                 for (int j = 0; j < sndArray.length; j++) {
-                    mergeArray[m] = sndArray[j];
-                    m++;
+                    mergeArray[k] = sndArray[j];
+                    k++;
                 }
             }
-            i++;
-        } while (i < fstArray.length);
+
+        }
+        return mergeArray;
     }
 
 }
